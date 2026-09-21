@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .btn { padding: 6px 12px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; }
+        .btn-danger { background: #dc3545; }
+    </style>
+</head>
+<body>
+    <h2>Produtos Cadastrados</h2>
+    <a href="/produtos/novo" class="btn">Novo Produto</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${produtos}">
+                <td th:text="${p.id}">1</td>
+                <td th:text="${p.nome}">Produto</td>
+                <td th:text="${'R$ ' + p.preco}">0.00</td>
+                <td th:text="${p.quantidade}">0</td>
+                <td>
+                    <a th:href="@{/produtos/deletar/{id}(id=${p.id})}" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

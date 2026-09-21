@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Produto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 300px; padding: 8px; }
+        button { padding: 10px 15px; background: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Cadastrar Produto</h2>
+
+    <form th:action="@{/produtos}" th:object="${produto}" method="post">
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" th:field="*{nome}" required />
+        </div>
+        <div class="form-group">
+            <label>Preço:</label>
+            <input type="number" step="0.01" th:field="*{preco}" required />
+        </div>
+        <div class="form-group">
+            <label>Quantidade em Estoque:</label>
+            <input type="number" th:field="*{quantidade}" required />
+        </div>
+        <button type="submit">Salvar</button>
+        <a href="/produtos">Voltar</a>
+    </form>
+</body>
+</html>
