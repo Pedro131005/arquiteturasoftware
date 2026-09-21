@@ -1,0 +1,25 @@
+1. Estilo Arquitetural: Cliente-Servidor (Client-Server)
+Conceito e definição: Arquitetura distribuída dividida entre Clientes (que solicitam serviços) e o Servidor (que centraliza o processamento, regras de negócio e dados). A comunicação ocorre via rede de forma síncrona, separando a interface do usuário da lógica de backend.
+
+Casos de uso comuns:
+
+Sistemas Web/E-commerce: Navegadores enviando requisições REST/GraphQL para servidores de backend.
+
+Aplicativos Bancários Mobile: Apps consumindo APIs centralizadas do banco para transações e consultas.
+
+Principais vantagens: Centralização da segurança e dados; facilidade de atualizar a interface sem alterar o backend; clara divisão de responsabilidades.
+
+Principais desvantagens: Risco de Ponto Único de Falha (Single Point of Failure) se o servidor cair; dependência total de conexão de rede; alto custo para escalar o servidor em picos de acesso.
+
+2. Estilo Arquitetural: Pipes e Filtros (Pipes and Filters)
+Conceito e definição: Decompõe um processamento complexo em etapas independentes. Filtros são componentes que transformam os dados recebidos, e Pipes são os canais/fluxos que conectam a saída de um filtro à entrada do próximo.
+
+Casos de uso comuns:
+
+Compiladores e Linters: Análise sintática, otimização e geração de código em etapas sequenciais.
+
+Processamento de Vídeo/Áudio: Pipelines de conversão, aplicação de efeitos e compressão de mídia.
+
+Principais vantagens: Alta reusabilidade dos filtros; facilidade para testar etapas isoladas; possibilidade de processamento paralelo dos dados ao longo da cadeia.
+
+Principais desvantagens: Overhead de processamento se houver conversão de formatos entre filtros; alta complexidade para reverter alterações (rollback) em caso de falha; inadequado para sistemas interativos que exigem feedback do usuário.
